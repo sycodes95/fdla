@@ -1,0 +1,38 @@
+.header{
+  background-color: rgb(255, 255, 255);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px;
+  column-gap: 40px;
+  height: 100px;
+  
+}
+
+.logoContainer{
+  grid-column: 2 / 3;
+  display: grid;
+  justify-content: center;
+}
+
+.logoText{
+  color: black;
+  text-align: center;
+  width:fit-content;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 80px;
+  transition: color 0.3s;
+}
+
+.logoText:hover{
+  cursor: pointer;
+  color: rgb(225, 204, 174);
+}
+.headerBannerImg{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 100px;
+
+  height: 50px;
+  
+}
