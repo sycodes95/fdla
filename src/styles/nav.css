@@ -26,21 +26,29 @@
 .link:hover{
   color: rgb(225, 204, 174);
 }
-.home:hover, .shop:hover, .cart:hover{
+
+
+.home:hover, .shop:hover{
   cursor: pointer;
 }
-.home, .shop, .cart{
+.home, .shop{
   text-align: center;
+}
+
+.cart{
+  height: 25px;
+  width: 25px;
 }
 .cartSvg {
   fill: grey;
-  height: 25px;
-  width: 25px;
+  height: 100%;
+  width: 100%;
 
   transform: rotate(0deg);
   transition: transform 0.5s;
 }
 
 .cartSvg:hover{
+  cursor: pointer;
   transform: rotate(69deg)
 }
