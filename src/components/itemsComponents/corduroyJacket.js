@@ -3,17 +3,21 @@ import Shop from "../shop";
 import { useState, useContext, createContext } from "react";
 import styles from "../styles";
 import "../../styles/item.css"
+import Nav from "../nav";
 import Cart from "../cart";
-import { unstable_HistoryRouter } from "react-router-dom";
+import QuantityContext from "../context"
 
 const CorduroyJacket = () =>{
-  const CartContext = createContext()
-  const [cart, setCart] = useState([])
+  const { quantity, setQuantity } = useContext(QuantityContext);
+  
 
   const addToCart = () =>{
+    console.log(quantity);
+    setQuantity(quantity + 1)
     styles[0].cart = true;
     styles[0].quantity++;
     console.log(styles)
+
   }
 
   
@@ -60,6 +64,7 @@ const CorduroyJacket = () =>{
           </div>
           <div className="addToWish"></div>
           <button className="addToBag" onClick={()=>addToCart()}>Add To Bag</button>
+          
           
           <div className="extraInfo"></div>
         </div>

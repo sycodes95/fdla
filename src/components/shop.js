@@ -24,7 +24,7 @@ const Shop = () =>{
       <div className="shopItemsContainer">
         {styles.map(style => (
           <div className="shopItems" key={style.styleN}>
-            <Link class="picLink" to={style.path}>
+            <Link className="picLink" to={style.path}>
               <img className="styleImg" src={style.colorImg[0].images[0]}/>
             </Link>
             

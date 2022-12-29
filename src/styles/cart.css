@@ -1,0 +1,36 @@
+.cartContainer{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.cartItemContainer{
+  font-weight: 100;
+  display: grid;
+  min-height: 400px;
+  width: 1000px;
+  justify-content: center;
+}
+
+.cartItem{
+  height: 300px;
+  width: 200px;
+  transition: opacity 0.7s;
+}
+
+.cartItemImg{
+  height: 100%;
+  width: 100%;
+}
+
+.cartEmpty{
+  margin-top: 100px;
+  text-align: center;
+}
+
+.removeItem{
+  border: none;
+}
+.removeItem:hover{
+  cursor: pointer;
+}

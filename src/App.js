@@ -11,23 +11,26 @@ import styles from "./components/styles";
 import CorduroyJacket from "./components/itemsComponents/corduroyJacket";
 import { BrowserRouter, Routes, Switch, Route } from "react-router-dom";
 import { useState } from "react";
+import QuantityContext from "./components/context";
 
 const App = () => {
-  const [cart, setCart] = useState([])
+  const [quantity, setQuantity] = useState(0)
   return (
     <BrowserRouter>
     <div>
-      <Header/>
-      <Menu/>
+      <QuantityContext.Provider value={{quantity, setQuantity}}>
+        <Header quantity={quantity} setQuantity={setQuantity}/>
+        <Menu/>
 
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/shop" element={<Shop/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/shop/corduroy-jacket" element={<CorduroyJacket/>}/>
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/shop" element={<Shop/>}/>
+            <Route path="/cart" element={<Cart/>}/>
+            <Route path="/shop/corduroy-jacket" element={<CorduroyJacket/>}/>
+          </Routes>
 
-      <Footer/>
+        <Footer/>
+      </QuantityContext.Provider>
     </div>
     </BrowserRouter>
 

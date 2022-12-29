@@ -4,20 +4,26 @@ import { Link } from "react-router-dom";
 import "../styles/header.css"
 import Nav from "./nav"
 import Menu from "./menu";
-
-const Header = () =>{
+import styles from "./styles";
+import QuantityContext from "./context";
+const Header = (props) =>{
+  const {quantity, setQuantity} = props;
   return(
-    
-    <div className="header">
-      <div className="logoContainer">
-      <Link className="link" to="/">
-        <div className="logoText">
-          FDLA.
+    <QuantityContext.Provider value={{quantity, setQuantity}}>
+      <div className="header">
+        <div className="logoContainer">
+        <Link className="link" to="/">
+          <div className="logoText">
+            FDLA.
+          </div>
+        </Link>
         </div>
-      </Link>
+        
+          <Nav quantity={quantity} setQuantity={setQuantity}/>
+        
+        
       </div>
-      <Nav/>
-    </div>
+    </QuantityContext.Provider>
       
     
   )
