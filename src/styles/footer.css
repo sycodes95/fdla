@@ -1,0 +1,47 @@
+.footerContainer{
+  
+  background-color: rgb(255, 255, 255);
+  height: 600px;
+}
+
+.footerInfo{
+  margin-top: 40px;
+  margin-left: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+}
+.footerInfoTitle{
+  padding-bottom: 4px;
+  
+  border-bottom: solid 2px rgb(221, 199, 169);
+  border-radius: 0 0 4px 4px;
+}
+
+.footerQuestion > p, .footerCustomer > p, .footerAbout > p, .footerSocial > p{
+
+  color: rgb(147, 147, 147);
+  font-size: 12px;
+}
+.footerCustomer > p:hover, .footerAbout > p:hover, .footerSocial > p:hover{
+  cursor: pointer;
+}
+
+.footerInfoTitle{
+  
+  color: rgb(221, 199, 169);
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+.footerImg{
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.flowers{
+  height: 100px;
+  width: 100px;
+}

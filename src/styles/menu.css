@@ -1,0 +1,42 @@
+.menuContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: 1fr;
+  justify-content: center;
+  column-gap: 10px;
+  height: 60px;
+  z-index: 1;
+  text-align: center;
+  
+  
+}
+
+.menuItems{
+  display: inline-block;
+  
+  font-weight: 300;
+  margin: auto;
+  transition: color 0.5s;
+  width: 100%;
+}
+
+.bestSell{
+
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  
+}
+
+.womens > span{
+  padding-right: 15px;
+}
+
+
+.menuItems:hover{
+  cursor: pointer;
+  color: rgb(225, 204, 174);
+}
+.menuItems > span {
+  
+
+}

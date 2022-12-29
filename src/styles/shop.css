@@ -1,0 +1,55 @@
+.shopContainer{
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  height: auto;
+  background-color: white;
+  justify-content: center;
+  
+ 
+}
+
+.shopHeader{
+  grid-column: 2/3;
+  
+  
+}
+
+
+
+.shopTitle{
+  font-weight: 100;
+}
+.shopItemsContainer{
+  grid-column: 2/3;
+
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.shopItems{
+  
+  height:500px;
+  width: 350px;
+}
+.shopItemDetail{
+  margin-top: 20px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 14px;
+  font-weight: 100;
+  display: flex;
+  justify-content: space-between;
+}
+.styleImg{
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgb(221, 199, 169);
+}
+.styleImg:hover{
+  cursor: pointer;
+}
+.styleImgTag{
+  position: relative;
+  transform: translateY(-50%);
+}
+

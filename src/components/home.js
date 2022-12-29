@@ -12,12 +12,14 @@ const Home = () =>{
         </video>
         
       </div>
+     
       <button className="homeShopButton">
         <Link className="link" to="/shop">
           <div className="shopButtonText">Shop Now</div>
         </Link>
         
       </button>
+     
       
     </div>
 

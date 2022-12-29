@@ -1,11 +1,17 @@
+
+.topHeader{
+  display: grid;
+  grid-template-rows: 80px 40px;
+}
+
 .header{
   background-color: rgb(255, 255, 255);
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 100px;
+  grid-template-rows: 80px;
   column-gap: 40px;
-  height: 100px;
+  height: 80px;
   
 }
 
@@ -20,7 +26,8 @@
   text-align: center;
   width:fit-content;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 80px;
+  font-size: 60px;
+  font-weight: 100;
   transition: color 0.3s;
 }
 

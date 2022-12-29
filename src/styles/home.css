@@ -1,11 +1,15 @@
 .homeContainer{
+  height: 840px;
+  
+
+}
+
+.homeVideo{
   height: 100%;
   width: 100%;
   object-fit: cover;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-
+  
+  position:static;
   
 
 }
@@ -13,10 +17,11 @@
 
 
 .vid{
+  
   object-fit: cover;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
+  height: 100%;
+  width: 100%;
+  position: static;
   z-index: 0;
 }
 
@@ -25,11 +30,11 @@
   height: 100px;
   width: 300px;
   z-index: 1;
-
+  
   opacity: 35%;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   transform: translateY(-50%);
-  top: 45%;
+  top: 50%;
   left: 10%;
   
   
@@ -40,13 +45,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  transition: 0.4s opacity;
+  
+  
+  
+  
 }
 
 .homeShopButton:hover{
   background-color: white;
   opacity: 80%;
+  
 
 }
 
