@@ -13,6 +13,7 @@ const Cart = () =>{
     styles.forEach(style =>{
       if(style.name === s.name){
         style.cart = false;
+        style.quantity = 0;
         let removeDiv = document.getElementById(`${s.styleN}`)
         let parent = removeDiv.parentNode
         parent.removeChild(removeDiv)

@@ -12,6 +12,7 @@ const CorduroyJacket = () =>{
 
   const addToCart = () =>{
     styles[0].cart = true;
+    styles[0].quantity++;
     console.log(styles)
   }
 

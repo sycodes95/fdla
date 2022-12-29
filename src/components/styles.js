@@ -27,6 +27,7 @@ const styles = [
       }
     ],
     size:['XS','S','M','L','XL'],
+    quantity: 0,
     price: 22.75,
     best:true,
     new:true,
@@ -50,6 +51,7 @@ const styles = [
       }
     ],
     size:['XS','S','M','L','XL'],
+    quantity: 0,
     price: 25.75,
     best:false,
     new:true,
@@ -73,6 +75,7 @@ const styles = [
       }
     ],
     size:['XS','S','M','L','XL'],
+    quantity: 0,
     price: 32.50,
     best:false,
     new:true,

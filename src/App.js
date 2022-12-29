@@ -7,10 +7,13 @@ import Shop from "./components/shop"
 import Cart from "./components/cart"
 import Menu from "./components/menu"
 import Footer from "./components/footer";
+import styles from "./components/styles";
 import CorduroyJacket from "./components/itemsComponents/corduroyJacket";
 import { BrowserRouter, Routes, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 
 const App = () => {
+  const [cart, setCart] = useState([])
   return (
     <BrowserRouter>
     <div>
