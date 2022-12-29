@@ -7,7 +7,7 @@ import Shop from "./components/shop"
 import Cart from "./components/cart"
 import Menu from "./components/menu"
 import Footer from "./components/footer";
-import Item from "./components/item";
+import CorduroyJacket from "./components/itemsComponents/corduroyJacket";
 import { BrowserRouter, Routes, Switch, Route } from "react-router-dom";
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
           <Route path="/" element={<Home/>}/>
           <Route path="/shop" element={<Shop/>}/>
           <Route path="/cart" element={<Cart/>}/>
-          <Route path="/item" element={<Item/>}/>
+          <Route path="/shop/corduroy-jacket" element={<CorduroyJacket/>}/>
         </Routes>
 
       <Footer/>

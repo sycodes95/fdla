@@ -1,0 +1,61 @@
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.itemContainer{
+  max-width: 1000px;
+  align-self: center;
+  display: grid;
+  gap: 25%;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: 1fr;
+
+  
+}
+.itemPicturesContainer{
+  grid-column: 1/2;
+  
+  height: 500px;
+  width: 300px;
+  border-radius: 10px;
+  overflow:hidden;
+  margin: 0 auto;
+}
+
+.itemInfo{
+  width: 400px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  grid-column: 2/3;
+
+  color: rgb(147, 147, 147);
+}
+
+.itemTitle{
+  font-size: 26px;
+  font-weight: 100;
+}
+
+.itemPicturesContainer img {
+  
+  transform-origin: center;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  transition: all 0.1s ease-out;
+}
+.itemPicturesContainer:hover img {
+  cursor:crosshair;
+}
+
+.zoom{
+
+}
+  
+  
+
+
+
+
+
+

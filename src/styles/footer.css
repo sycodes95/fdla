@@ -1,7 +1,15 @@
+.container{
+  display: flex;
+  justify-content: center;
+  
+}
+
 .footerContainer{
   
   background-color: rgb(255, 255, 255);
   height: 600px;
+  max-width: 1000px;
+  align-self: center;
 }
 
 .footerInfo{
@@ -9,6 +17,7 @@
   margin-left: 40px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  column-gap: 60px;
   
 }
 .footerInfoTitle{

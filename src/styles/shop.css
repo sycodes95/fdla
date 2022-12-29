@@ -1,35 +1,42 @@
+.container{
+  display: flex;
+  justify-content: center;
+}
+
 .shopContainer{
   display: grid;
   grid-template-columns: 100px 1fr 100px;
-  height: auto;
+  grid-template-rows: 60px;
+  height: 800px;
   background-color: white;
   justify-content: center;
+  align-items: center;
   
  
 }
 
 .shopHeader{
+  height: 60px;
   grid-column: 2/3;
-  
-  
 }
-
-
-
 .shopTitle{
   font-weight: 100;
 }
 .shopItemsContainer{
   grid-column: 2/3;
-
+  
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 .shopItems{
+  display: grid;
+  justify-content: center;
   
-  height:500px;
-  width: 350px;
+  
+  
 }
 .shopItemDetail{
   margin-top: 20px;
@@ -39,9 +46,15 @@
   display: flex;
   justify-content: space-between;
 }
+
+.picLink{
+  display: flex;
+  justify-content: center;
+}
 .styleImg{
-  height: 100%;
-  width: 100%;
+  
+  height: 500px;
+  width: 320px;
   border-radius: 10px;
   box-shadow: 1px 1px 10px rgb(221, 199, 169);
 }

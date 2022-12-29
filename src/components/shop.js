@@ -1,19 +1,17 @@
 import Cart from "./cart";
 import styles from "./styles";
 import "../styles/shop.css"
-import Item from "./item";
+
 import { Link } from "react-router-dom";
+
+import { useState } from "react";
+
 
 const Shop = () =>{
   const checkBestSeller = (best) =>{
     if(best) return 'Best Seller';
   }
-
-  const handleClick = (style) =>{
-    return (
-      <Item props={style}/>
-    )
-  }
+ 
   
   
   return(
@@ -26,16 +24,19 @@ const Shop = () =>{
       <div className="shopItemsContainer">
         {styles.map(style => (
           <div className="shopItems" key={style.styleN}>
-            
-            <img className="styleImg" src={style.colorImg[0].images[0]} onClick={() => handleClick(style)}/>
+            <Link class="picLink" to={style.path}>
+              <img className="styleImg" src={style.colorImg[0].images[0]}/>
+            </Link>
             
             <div className="shopItemDetail">
               <span>{style.name}</span>
               <span>$ {style.price}</span>
             </div>
+            
           </div>
         ))}
       </div>
+
     </div>
   )
 }

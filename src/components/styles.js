@@ -13,6 +13,7 @@ import leopardAccentGrey0 from "../styleimg/leopard_accent_hoodie_grey_0.jpg"
 const styles = [
   {
     name:'Corduroy Jacket',
+    path:'/shop/corduroy-jacket',
     styleN:'149-J8208',
     colors:['black', 'camel'],
     colorImg:[
@@ -35,6 +36,7 @@ const styles = [
   },
   {
     name:'Plaid Fleece Jacket',
+    path:'/shop/plaid-fleece-jacket',
     styleN:'149-J8214',
     colors:['green', 'rust'],
     colorImg:[
@@ -57,6 +59,7 @@ const styles = [
   },
   {
     name:'Leopard Accent Hoodie',
+    path:'/shop/leopard-accent-hoodie',
     styleN:'7TH-T1802',
     colors:['charcoal', 'grey'],
     colorImg:[
