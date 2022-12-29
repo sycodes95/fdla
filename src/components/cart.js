@@ -18,7 +18,7 @@ const Cart = () =>{
   }
 
   const getTotal = () =>{
-    document.querySelectorAll('.')
+    cartStyles.reduce()
   }
   useEffect(()=>{
     console.log('useeffect');

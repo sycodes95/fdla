@@ -6,9 +6,13 @@ import Nav from "./nav"
 import Menu from "./menu";
 import styles from "./styles";
 import QuantityContext from "./context";
+import ItemContext from "./itemContext";
 const Header = (props) =>{
   const {quantity, setQuantity} = props;
+  
+  console.log(props);
   return(
+    
     <QuantityContext.Provider value={{quantity, setQuantity}}>
       <div className="header">
         <div className="logoContainer">
@@ -19,12 +23,12 @@ const Header = (props) =>{
         </Link>
         </div>
         
-          <Nav quantity={quantity} setQuantity={setQuantity}/>
+        <Nav quantity={quantity} setQuantity={setQuantity}/>
         
         
       </div>
     </QuantityContext.Provider>
-      
+    
     
   )
 }

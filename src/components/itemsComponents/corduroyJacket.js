@@ -6,9 +6,13 @@ import "../../styles/item.css"
 import Nav from "../nav";
 import Cart from "../cart";
 import QuantityContext from "../context"
+import ItemContext from "../itemContext";
 
-const CorduroyJacket = () =>{
+const CorduroyJacket = (props) =>{
+  console.log(props);
   const { quantity, setQuantity } = useContext(QuantityContext);
+  const { item } = useContext(ItemContext)
+  console.log(item);
   
 
   const addToCart = () =>{
@@ -40,8 +44,9 @@ const CorduroyJacket = () =>{
   
   
   return(
-    
+
     <div className="container">
+      <div>{item.name}</div>
       <div className="itemContainer">
         <div className="itemPicturesContainer">
           <img className="itemPicture zoom" src={images[0]} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}/>
@@ -71,7 +76,6 @@ const CorduroyJacket = () =>{
       </div>
 
     </div>
-    
     
   )
 }
