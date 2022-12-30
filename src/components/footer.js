@@ -2,7 +2,7 @@ import "../styles/footer.css"
 import flowers from "../footerImg/beigeflowers.jpg"
 const Footer = () =>{
   return(
-    <div className="container">
+    <div className="footerMain">
       <div className="footerContainer">
         <div className="footerImg">
           <img className="flowers" src={flowers}/>

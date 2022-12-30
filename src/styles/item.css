@@ -7,7 +7,7 @@
   max-width: 1000px;
   align-self: center;
   display: grid;
-  gap: 25%;
+  
   grid-template-columns: repeat(2,1fr);
   grid-template-rows: 1fr;
 
@@ -24,16 +24,54 @@
 }
 
 .itemInfo{
-  width: 400px;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  grid-column: 2/3;
+  margin-top: 60px;
+  align-items: center;
 
-  color: rgb(147, 147, 147);
+  width: 400px;
+  font-family:'Times New Roman', Times, serif;
+  font-size: large;
+  grid-column: 2/3;
+  color: rgb(94, 94, 94);
+  
+}
+
+.itemInfo > div{
+  text-align: center;
+
 }
 
 .itemTitle{
   font-size: 26px;
   font-weight: 100;
+}
+
+.selectedColor{
+  font-size: 14px;
+}
+.itemColorSelect{
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+  justify-content: center;
+}
+.colorChoice{
+
+  margin-right: 4px;
+  height:20px;
+  width: 20px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  
+  transition: all 0.3s, transform 0.3s;
+  transform: rotate(0deg);
+  
+  
+}
+.colorChoiceContainer{
+  height: 20px;
+  width: 20px;
+}
+.colorChoice:hover{
+  cursor: pointer;
 }
 
 .itemPicturesContainer img {
@@ -47,6 +85,8 @@
 .itemPicturesContainer:hover img {
   cursor:crosshair;
 }
+
+
 
 .zoom{
 

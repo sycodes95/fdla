@@ -8,9 +8,10 @@ import Cart from "./components/cart"
 import Menu from "./components/menu"
 import Footer from "./components/footer";
 import styles from "./components/styles";
-import CorduroyJacket from "./components/itemsComponents/corduroyJacket";
+import ItemDetails from "./components/itemsComponents/itemDetails";
 import { BrowserRouter, Routes, Switch, Route } from "react-router-dom";
 import { useState } from "react";
+import "./styles/app.css"
 import QuantityContext from "./components/context";
 import ItemContext from "./components/itemContext";
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
   const [quantity, setQuantity] = useState(0)
   return (
     <BrowserRouter>
-    <div>
+    <div className="main">
       <ItemContext.Provider value={{item, setItem}}>
         <QuantityContext.Provider value={{quantity, setQuantity}}>
           <Header quantity={quantity} setQuantity={setQuantity}/>
@@ -28,7 +29,7 @@ const App = () => {
               <Route path="/" element={<Home/>}/>
               <Route path="/shop" element={<Shop/>}/>
               <Route path="/cart" element={<Cart/>}/>
-              <Route path={item.path} element={<CorduroyJacket/>}/>
+              <Route path={item.path} element={<ItemDetails/>}/>
             </Routes>
 
           <Footer/>
