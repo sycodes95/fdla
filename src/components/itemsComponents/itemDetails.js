@@ -32,6 +32,9 @@ const ItemDetails = (props) =>{
       }
     })
   }
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  }, [])
 
   useEffect(()=>{
     if(selectedImages.length < 2) {
@@ -52,6 +55,7 @@ const ItemDetails = (props) =>{
         choice.style.transform = 'rotate(45deg)'
       }
     })
+
     
     return ()=>{
       setColor([])
@@ -67,8 +71,15 @@ const ItemDetails = (props) =>{
   },[selectedColor])
 
   useEffect(()=>{
+    
     const dots = document.querySelectorAll('.dot')
+    
     dots.forEach(dot =>{
+      console.log(selectedImages);
+      if(selectedImages.length < 2) {
+        dot.hidden = true;
+      }
+      
       if(parseInt(dot.id) !== currentIndex){
         dot.style.backgroundColor = 'white'
       } else if (parseInt(dot.id) === currentIndex){
@@ -137,12 +148,12 @@ const ItemDetails = (props) =>{
       if(parseInt(dot.id) !== parseInt(event.target.id)) dot.style.backgroundColor = 'white'
     })
     event.target.style.backgroundColor = 'rgb(221, 199, 169)'
-    setCurrentIndex(parseInt(event.target.id))
+    
 
     setTimeout(()=>{
       itemPictureRef.current.style.filter = 'grayscale(0%)'
       itemPictureRef.current.style.opacity = '1'
-
+      setCurrentIndex(parseInt(event.target.id))
     }, 200)
     
   }
@@ -167,7 +178,6 @@ const ItemDetails = (props) =>{
             
             <img className="itemPicture" ref={itemPictureRef} src={selectedImages[currentIndex]}
             onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}/>
-              
             
           </div>
 
