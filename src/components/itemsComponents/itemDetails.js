@@ -15,7 +15,9 @@ const ItemDetails = (props) =>{
   const { color, setColor} = useContext(ColorContext);
   const itemPictureRef = useRef(null);
   const colorChoiceRefs = useRef([]);
-  
+  const leftArrowRef = useRef(null)
+  const rightArrowRef = useRef(null)
+  const dotRef = useRef(null)
   const [selectedColor, setSelectedColor] = useState(color.color);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedImages, setSelectedImages] = useState(item.colorImg[0].images);
@@ -32,8 +34,10 @@ const ItemDetails = (props) =>{
   }
 
   useEffect(()=>{
-    
-    console.log(selectedImages);
+    if(selectedImages.length < 2) {
+      leftArrowRef.current.hidden = true
+      rightArrowRef.current.hidden = true
+    }
     if(color.images !== null && color.images !== undefined) setSelectedImages(color.images)
     //checks for color context, uses it as selectedImages if not null or undefined
     const colorChoiceImg = document.querySelectorAll('.colorChoice')
@@ -61,6 +65,17 @@ const ItemDetails = (props) =>{
     
     setCurrentIndex(0)
   },[selectedColor])
+
+  useEffect(()=>{
+    const dots = document.querySelectorAll('.dot')
+    dots.forEach(dot =>{
+      if(parseInt(dot.id) !== currentIndex){
+        dot.style.backgroundColor = 'white'
+      } else if (parseInt(dot.id) === currentIndex){
+        dot.style.backgroundColor = 'rgb(221, 199, 169)'
+      }
+    })
+  },[currentIndex])
   
   const handleColorClick = (color, obj) =>{
     setSelectedColor(color)
@@ -69,16 +84,28 @@ const ItemDetails = (props) =>{
   }
  
   const handleLeftArrow = () =>{
-    const first = currentIndex === 0;
-    const newIndex = first ? selectedImages.length - 1 : currentIndex - 1;
-    
-    setCurrentIndex(newIndex)
+    itemPictureRef.current.style.opacity = '0.5'
+    itemPictureRef.current.style.filter = 'grayscale(100%)'
+    setTimeout(()=>{
+      itemPictureRef.current.style.filter = 'grayscale(0%)'
+      itemPictureRef.current.style.opacity = '1'
+      const first = currentIndex === 0;
+      const newIndex = first ? selectedImages.length - 1 : currentIndex - 1;
+      setCurrentIndex(newIndex)
+    }, 200)
     
   }
   const handleRightArrow = () =>{
-    const last = currentIndex === selectedImages.length - 1;
-    const newIndex = last ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex)
+    itemPictureRef.current.style.opacity = '0.5'
+    itemPictureRef.current.style.filter = 'grayscale(100%)'
+    
+    setTimeout(()=>{
+      itemPictureRef.current.style.filter = 'grayscale(0%)'
+      itemPictureRef.current.style.opacity = '1'
+      const last = currentIndex === selectedImages.length - 1;
+      const newIndex = last ? 0 : currentIndex + 1;
+      setCurrentIndex(newIndex)
+    }, 200)
     
   }
   
@@ -98,6 +125,27 @@ const ItemDetails = (props) =>{
     const img = itemPictureRef.current;
     img.style.transform = "scale(1)"
   }
+
+  const handleDotClick = (event) =>{
+    itemPictureRef.current.style.opacity = '0.5'
+    itemPictureRef.current.style.filter = 'grayscale(100%)'
+
+    const dots = document.querySelectorAll('.dot')
+    dots.forEach(dot =>{
+      console.log(dot.id);
+      console.log(parseInt(event.target.id));
+      if(parseInt(dot.id) !== parseInt(event.target.id)) dot.style.backgroundColor = 'white'
+    })
+    event.target.style.backgroundColor = 'rgb(221, 199, 169)'
+    setCurrentIndex(parseInt(event.target.id))
+
+    setTimeout(()=>{
+      itemPictureRef.current.style.filter = 'grayscale(0%)'
+      itemPictureRef.current.style.opacity = '1'
+
+    }, 200)
+    
+  }
   
   return(
     //<ItemContext.Provider value={{item, setItem}}>
@@ -105,9 +153,22 @@ const ItemDetails = (props) =>{
         
         <div className="itemContainer">
           <div className="itemPicturesContainer">
-            <button className="leftArrow" onClick={handleLeftArrow}>L</button>
-            <button className="rightArrow" onClick={handleRightArrow}>R</button>
-            <img className="itemPicture" ref={itemPictureRef} src={selectedImages[currentIndex]} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}/>
+            <div className="containerArrow">
+              <button className="leftArrow" ref={leftArrowRef} onClick={handleLeftArrow}>L</button>
+              <button className="rightArrow" ref={rightArrowRef} onClick={handleRightArrow}>R</button>
+
+            </div>
+            
+            <div className="dotContainer">
+              {selectedImages.map((ig, i) =>(
+                <button className="dot" key={i} id={i} ref={dotRef} onClick={handleDotClick}></button>
+              ))}
+            </div>
+            
+            <img className="itemPicture" ref={itemPictureRef} src={selectedImages[currentIndex]}
+            onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}/>
+              
+            
           </div>
 
           <div className="itemInfo">
@@ -121,7 +182,7 @@ const ItemDetails = (props) =>{
               <span className="selectedColor">COLOR: {selectedColor}</span>
               <div className="itemColorSelect">
                 {item.colorImg.map(obj =>(
-                  <div className="colorChoiceContainer" id={`${obj.color}parent`}>
+                  <div key={obj.color} className="colorChoiceContainer" id={`${obj.color}parent`}>
                     <img className="colorChoice" ref={colorChoiceRefs} id={obj.color} src={obj.colorPre} alt='' 
                     onClick={()=>handleColorClick(obj.color, obj.images)} onMouseDown={handleColorMouseDown}/>
                   </div>
