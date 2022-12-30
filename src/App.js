@@ -14,28 +14,33 @@ import { useState } from "react";
 import "./styles/app.css"
 import QuantityContext from "./components/context";
 import ItemContext from "./components/itemContext";
+import ColorContext from "./components/colorContext";
+
 const App = () => {
   const [item, setItem] = useState([])
   const [quantity, setQuantity] = useState(0)
+  const [color, setColor] = useState([])
   return (
     <BrowserRouter>
     <div className="main">
-      <ItemContext.Provider value={{item, setItem}}>
-        <QuantityContext.Provider value={{quantity, setQuantity}}>
-          <Header quantity={quantity} setQuantity={setQuantity}/>
-          <Menu/>
+      <ColorContext.Provider value={{color, setColor}}>
+        <ItemContext.Provider value={{item, setItem}}>
+          <QuantityContext.Provider value={{quantity, setQuantity}}>
+            <Header quantity={quantity} setQuantity={setQuantity}/>
+            <Menu/>
 
-            <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/shop" element={<Shop/>}/>
-              <Route path="/cart" element={<Cart/>}/>
-              <Route path={item.path} element={<ItemDetails/>}/>
-            </Routes>
+              <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/shop" element={<Shop/>}/>
+                <Route path="/cart" element={<Cart/>}/>
+                <Route path={item.path} element={<ItemDetails/>}/>
+              </Routes>
 
-          <Footer/>
-        </QuantityContext.Provider>
+            <Footer/>
+          </QuantityContext.Provider>
 
-      </ItemContext.Provider>
+        </ItemContext.Provider>
+      </ColorContext.Provider>
       
     </div>
     </BrowserRouter>

@@ -25,12 +25,12 @@ const styles = [
     colors:['CAMEL','BLACK'],
     colorImg:[
       {
-        color: 'camel',
+        color: 'CAMEL',
         colorPre: camel,
         images: [corduroyCamel0, corduroyCamel1, corduroyCamel2]
       },
       {
-        color: 'black',
+        color: 'BLACK',
         colorPre: black,
         images: [corduroyBlack0, corduroyBlack1]
       }
@@ -51,13 +51,13 @@ const styles = [
     colors:['RUST', 'GREEN'],
     colorImg:[
       {
-        color: 'rust',
+        color: 'RUST',
         colorPre: rust,
         images: [plaidFleeceRust0, plaidFleeceRust1]
         
       },
       {
-        color: 'green',
+        color: 'GREEN',
         colorPre: green,
         images: [plaidFleeceGreen0, plaidFleeceGreen1]
         
@@ -79,13 +79,13 @@ const styles = [
     colors:['CHARCOAL', 'GREY'],
     colorImg:[
       {
-        color: 'grey',
+        color: 'GREY',
         colorPre: grey,
         images: [leopardAccentGrey0]
         
       },
       {
-        color: 'charcoal',
+        color: 'CHARCOAL',
         colorPre: charcoal,
         images: [leopardAccentCharcoal0]
       }
