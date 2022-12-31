@@ -173,13 +173,20 @@
 }
 
 .addToBag{
-  background-color: rgb(185, 185, 185);
+  opacity: 0.7;
+  background-color: rgb(225, 204, 174);
   align-self: center;
   height:40px;
   width: 180px;
   border: none;
-  color: white;
+  color: rgb(154, 154, 154);
+
+  transition: opacity 0.7s ease-in;
 }
+
+
+
+
 
 .itemColor{
   padding-bottom: 20px;

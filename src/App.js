@@ -15,38 +15,41 @@ import "./styles/app.css"
 import QuantityContext from "./components/context";
 import ItemContext from "./components/itemContext";
 import ColorContext from "./components/colorContext";
+import CartContext from "./components/cartContext";
 
 const App = () => {
   const [item, setItem] = useState([])
   const [quantity, setQuantity] = useState(0)
   const [color, setColor] = useState([])
+  const [cartAdded, setCartAdded] = useState({items:[]})
   
-  console.log(item);
   return (
     <BrowserRouter>
     <div className="main">
-      <ColorContext.Provider value={{color, setColor}}>
-        <ItemContext.Provider value={{item, setItem}}>
-          <QuantityContext.Provider value={{quantity, setQuantity}}>
-            <Header quantity={quantity} setQuantity={setQuantity}/>
-            <Menu/>
+      <CartContext.Provider value={{cartAdded, setCartAdded}}>
+        <ColorContext.Provider value={{color, setColor}}>
+          <ItemContext.Provider value={{item, setItem}}>
+            <QuantityContext.Provider value={{quantity, setQuantity}}>
+              <Header quantity={quantity} setQuantity={setQuantity}/>
+              <Menu/>
 
-              <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/shop" element={<Shop/>}/>
-                <Route path={item.path} element={<ItemDetails/>}/>
-                <Route path="/cart" element={<Cart/>}/>
-                {styles.map(s =>(
-                  <Route path={s.path} key={s.styleN} element={<ItemDetails/>}/>
-                ))}
-                
-              </Routes>
+                <Routes>
+                  <Route path="/" element={<Home/>}/>
+                  <Route path="/shop" element={<Shop/>}/>
+                  <Route path={item.path} element={<ItemDetails/>}/>
+                  <Route path="/cart" element={<Cart/>}/>
+                  {styles.map(s =>(
+                    <Route path={s.path} key={s.styleN} element={<ItemDetails/>}/>
+                  ))}
+                  
+                </Routes>
 
-            <Footer/>
-          </QuantityContext.Provider>
+              <Footer/>
+            </QuantityContext.Provider>
 
-        </ItemContext.Provider>
-      </ColorContext.Provider>
+          </ItemContext.Provider>
+        </ColorContext.Provider>
+      </CartContext.Provider>
       
     </div>
     </BrowserRouter>

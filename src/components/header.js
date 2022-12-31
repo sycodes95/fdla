@@ -9,8 +9,6 @@ import QuantityContext from "./context";
 import ItemContext from "./itemContext";
 const Header = (props) =>{
   const {quantity, setQuantity} = props;
-  
-  console.log(props);
   return(
     
     <QuantityContext.Provider value={{quantity, setQuantity}}>

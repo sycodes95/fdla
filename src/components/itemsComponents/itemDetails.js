@@ -8,15 +8,20 @@ import Cart from "../cart";
 import QuantityContext from "../context"
 import ItemContext from "../itemContext";
 import ColorContext from "../colorContext";
+import CartContext from "../cartContext"
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 const ItemDetails = (props) =>{
  
   const { quantity, setQuantity } = useContext(QuantityContext);
   let { item, setItem } = useContext(ItemContext);
-  console.log(item);
+  let { cartAdded, setCartAdded} = useContext(CartContext)
+  
   if(item.name == null || item.name == undefined) item = JSON.parse(localStorage.getItem("item"));
   const { color, setColor} = useContext(ColorContext);
+  //---------------------------------------------------------------------------
+  //---------------------------------------------------------------------------
+  const addToBagRef = useRef(null)
   const itemPictureRef = useRef(null);
   const colorChoiceRefs = useRef([]);
   const leftArrowRef = useRef(null)
@@ -26,10 +31,25 @@ const ItemDetails = (props) =>{
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedImages, setSelectedImages] = useState(item.colorImg[0].images);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedItemDetails, setSelectedItemDetails] = useState(null)
+
+
   //---------------------------------------------------------------------------
   //---------------------------------------------------------------------------
   
-  const addToCart = () =>{
+  const addToCartClick = () =>{
+    
+    setSelectedItemDetails({
+      style: item.name,
+      path: item.path,
+      price: item.price,
+      color: selectedColor,
+      image: selectedImages[0],
+      size: selectedSize,
+      quantity: 1
+    })
+    
+    
     setQuantity(quantity + 1)
     styles.forEach(s => {
       if(s.name === item.name){
@@ -37,12 +57,39 @@ const ItemDetails = (props) =>{
         s.quantity++;
       }
     })
+    
+  }
+
+  const addToCartMouseDown = () =>{
+      addToBagRef.current.style.color = 'black'
+  }
+
+  const addToCartMouseUp = () =>{
+    addToBagRef.current.style.color = 'white'
   }
   useEffect(()=>{
     window.scrollTo(0,0)
     localStorage.setItem('item', JSON.stringify(item))
     
+    
   }, [])
+
+  useEffect(()=>{
+    console.log('select:',selectedItemDetails);
+    if(selectedItemDetails !== null && selectedItemDetails !== undefined){
+      cartAdded.items.forEach(it =>{
+        if(it.style == selectedItemDetails.style &&
+          it.size == selectedItemDetails.size &&
+          it.color == selectedItemDetails.color){
+            it.quantity++
+        } else {
+          
+        }
+      })
+      setCartAdded({items: [...cartAdded.items, selectedItemDetails]})
+    }
+    
+  },[selectedItemDetails])
 
   useEffect(()=>{
     if(selectedImages.length < 2) {
@@ -81,7 +128,7 @@ const ItemDetails = (props) =>{
     const dots = document.querySelectorAll('.dot')
     
     dots.forEach(dot =>{
-      console.log(selectedImages);
+      
       if(selectedImages.length < 2) {
         dot.hidden = true;
       }
@@ -95,8 +142,16 @@ const ItemDetails = (props) =>{
   },[currentIndex])
 
   useEffect(()=>{
-    console.log(selectedSize);
-  }, [selectedSize])
+    if(selectedColor !== undefined && selectedSize !== null){
+      addToBagRef.current.disabled = false;
+      addToBagRef.current.style.opacity = '1'
+      addToBagRef.current.style.color = 'white'
+      addToBagRef.current.textContent = 'Add To Bag'
+      if(addToBagRef.current.disabled == false) addToBagRef.current.style.cursor = 'pointer';
+    } else {
+      addToBagRef.current.disabled = true;
+    }
+  }, [selectedSize, selectedColor])
 
   //---------------------------------------------------------------------------
   //---------------------------------------------------------------------------
@@ -156,12 +211,9 @@ const ItemDetails = (props) =>{
 
     const dots = document.querySelectorAll('.dot')
     dots.forEach(dot =>{
-      console.log(dot.id);
-      console.log(parseInt(event.target.id));
       if(parseInt(dot.id) !== parseInt(event.target.id)) dot.style.backgroundColor = 'white'
     })
     event.target.style.backgroundColor = 'rgb(221, 199, 169)'
-    
 
     setTimeout(()=>{
       itemPictureRef.current.style.filter = 'grayscale(0%)'
@@ -195,8 +247,8 @@ const ItemDetails = (props) =>{
 
           <div className="itemPicturesContainer">
             <div className="containerArrow">
-              <button className="leftArrow" ref={leftArrowRef} onClick={handleLeftArrow}>L</button>
-              <button className="rightArrow" ref={rightArrowRef} onClick={handleRightArrow}>R</button>
+              <button className="leftArrow" ref={leftArrowRef} onClick={handleLeftArrow}>{'<'}</button>
+              <button className="rightArrow" ref={rightArrowRef} onClick={handleRightArrow}>{'>'}</button>
 
             </div>
             
@@ -244,7 +296,9 @@ const ItemDetails = (props) =>{
 
             <button className="addToWish">Add To Wishlist</button>
 
-            <button className="addToBag" onClick={()=>addToCart()}>Select Options</button>
+            <button className="addToBag" ref={addToBagRef} onClick={addToCartClick} 
+            onMouseDown={addToCartMouseDown} onMouseUp={addToCartMouseUp}
+            >Select Options</button>
 
             <div className="extraInfo"></div>
 

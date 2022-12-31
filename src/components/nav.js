@@ -7,7 +7,7 @@ import QuantityContext from "./context"
 
 const Nav = (props) => {
   const {quantity, setQuantity} = props;
-  console.log(props)
+  
   return(
     <QuantityContext.Provider value={{quantity, setQuantity}}>
       <nav className="nav">

@@ -4,12 +4,13 @@ import Shop from "./shop";
 import styles from "./styles";
 import "../styles/cart.css"
 import QuantityContext from "./context"
+import CartContext from "./cartContext";
 
 const Cart = () =>{
   const { quantity, setQuantity } = useContext(QuantityContext);
-
+  let { cartAdded, setCartAdded} = useContext(CartContext)
+  console.log(cartAdded);
   const cartStyles = styles.filter(s => s.cart === true);
-
 
   const ifCartEmpty = () =>{
     if(cartStyles.every(s => s.quantity === 0)){
