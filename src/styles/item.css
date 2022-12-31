@@ -1,6 +1,14 @@
-.container{
+@font-face {
+  font-family: pathway;
+  src: url(./fonts/PathwayGothicOne-Regular.ttf);
+}
+
+
+.itemMain{
+  
   display: flex;
   justify-content: center;
+  
 }
 
 .itemContainer{
@@ -20,8 +28,8 @@
   justify-content: center;
   
   grid-column: 1/2;
-  height: 500px;
-  width: 300px;
+  height: 600px;
+  width: 400px;
   
   margin: 0 auto;
   overflow:hidden;
@@ -42,17 +50,23 @@
   
 }
 
+.itemPrice{
+  padding-bottom: 20px;
+
+  font-size: 18px;
+}
+
 
 
 
 .containerArrow{
   position: absolute;
   margin-top: 0;
-  width: 300px;
+  width: 400px;
   display: flex;
   justify-content: space-between;
   z-index: 2;
-  top: 40%;
+  top: 45%;
   transform: translateY(-50%);
   
 
@@ -99,12 +113,11 @@
 }
 
 .itemInfo{
+  display: flex;
+  flex-direction: column;
+  font-family: pathway;
   margin-top: 60px;
-  align-items: center;
-
   width: 400px;
-  font-family:'Times New Roman', Times, serif;
-  font-size: large;
   grid-column: 2/3;
   color: rgb(94, 94, 94);
   
@@ -116,13 +129,65 @@
 }
 
 .itemTitle{
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 100;
 }
 
-.selectedColor{
-  font-size: 14px;
+.itemSizeContainer{
+  padding-bottom: 20px;
 }
+.itemSizeContainer > div{
+  font-size: 14px;
+  padding-bottom: 10px;
+
+}
+.itemSizeSelect{
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+.size{
+  color: rgb(94, 94, 94);
+  font-family: pathway;
+  border: none;
+
+}
+
+.size:hover{
+  cursor: pointer;
+}
+.selectedColor{
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.addToWish{
+  font-weight: 100;
+  align-self: center;
+  border: none;
+  padding-bottom: 20px;
+}
+
+.addToWish:hover{
+  cursor: pointer;
+}
+
+.addToBag{
+  background-color: rgb(185, 185, 185);
+  align-self: center;
+  height:40px;
+  width: 180px;
+  border: none;
+  color: white;
+}
+
+.itemColor{
+  padding-bottom: 20px;
+}
+
+
+
+
 .itemColorSelect{
   display: flex;
   flex-direction: row;

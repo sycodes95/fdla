@@ -20,6 +20,8 @@ const App = () => {
   const [item, setItem] = useState([])
   const [quantity, setQuantity] = useState(0)
   const [color, setColor] = useState([])
+  
+  console.log(item);
   return (
     <BrowserRouter>
     <div className="main">
@@ -32,8 +34,12 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/shop" element={<Shop/>}/>
-                <Route path="/cart" element={<Cart/>}/>
                 <Route path={item.path} element={<ItemDetails/>}/>
+                <Route path="/cart" element={<Cart/>}/>
+                {styles.map(s =>(
+                  <Route path={s.path} key={s.styleN} element={<ItemDetails/>}/>
+                ))}
+                
               </Routes>
 
             <Footer/>

@@ -34,6 +34,7 @@
 .logoText:hover{
   cursor: pointer;
   color: rgb(225, 204, 174);
+  
 }
 .headerBannerImg{
   display: inline-block;

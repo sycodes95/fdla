@@ -8,10 +8,14 @@ import Cart from "../cart";
 import QuantityContext from "../context"
 import ItemContext from "../itemContext";
 import ColorContext from "../colorContext";
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 const ItemDetails = (props) =>{
-  
+ 
   const { quantity, setQuantity } = useContext(QuantityContext);
-  const { item } = useContext(ItemContext);
+  let { item, setItem } = useContext(ItemContext);
+  console.log(item);
+  if(item.name == null || item.name == undefined) item = JSON.parse(localStorage.getItem("item"));
   const { color, setColor} = useContext(ColorContext);
   const itemPictureRef = useRef(null);
   const colorChoiceRefs = useRef([]);
@@ -22,6 +26,8 @@ const ItemDetails = (props) =>{
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedImages, setSelectedImages] = useState(item.colorImg[0].images);
   const [currentIndex, setCurrentIndex] = useState(0);
+  //---------------------------------------------------------------------------
+  //---------------------------------------------------------------------------
   
   const addToCart = () =>{
     setQuantity(quantity + 1)
@@ -34,6 +40,8 @@ const ItemDetails = (props) =>{
   }
   useEffect(()=>{
     window.scrollTo(0,0)
+    localStorage.setItem('item', JSON.stringify(item))
+    
   }, [])
 
   useEffect(()=>{
@@ -55,8 +63,6 @@ const ItemDetails = (props) =>{
         choice.style.transform = 'rotate(45deg)'
       }
     })
-
-    
     return ()=>{
       setColor([])
       //resets the color context so that the wrong item pic
@@ -87,6 +93,13 @@ const ItemDetails = (props) =>{
       }
     })
   },[currentIndex])
+
+  useEffect(()=>{
+    console.log(selectedSize);
+  }, [selectedSize])
+
+  //---------------------------------------------------------------------------
+  //---------------------------------------------------------------------------
   
   const handleColorClick = (color, obj) =>{
     setSelectedColor(color)
@@ -157,12 +170,29 @@ const ItemDetails = (props) =>{
     }, 200)
     
   }
-  
+
+  const handleSizeClick = (size) =>{
+    setSelectedSize(size)
+    const s = document.querySelectorAll('.size')
+    s.forEach(e =>{
+      if(e.textContent !== size){
+        e.style.borderBottom = ''
+
+      } else if (e.textContent === size){
+        e.style.borderBottom = 'solid 2px grey'
+      }
+    })
+  }
+
+  //---------------------------------------------------------------------------
+  //---------------------------------------------------------------------------
   return(
-    //<ItemContext.Provider value={{item, setItem}}>
-      <div className="container">
+    <ItemContext.Provider value={{item, setItem}}>
+      <div className="itemMain">
         
         <div className="itemContainer">
+
+
           <div className="itemPicturesContainer">
             <div className="containerArrow">
               <button className="leftArrow" ref={leftArrowRef} onClick={handleLeftArrow}>L</button>
@@ -178,18 +208,21 @@ const ItemDetails = (props) =>{
             
             <img className="itemPicture" ref={itemPictureRef} src={selectedImages[currentIndex]}
             onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}/>
-            
           </div>
 
+
           <div className="itemInfo">
+
             <div className="itemTitle">
               {item.name}
             </div>
+
             <div className="itemPrice">
               $ {item.price}
             </div>
+
             <div className="itemColor">
-              <span className="selectedColor">COLOR: {selectedColor}</span>
+              <div className="selectedColor">COLOR: {selectedColor}</div>
               <div className="itemColorSelect">
                 {item.colorImg.map(obj =>(
                   <div key={obj.color} className="colorChoiceContainer" id={`${obj.color}parent`}>
@@ -199,18 +232,28 @@ const ItemDetails = (props) =>{
                 ))}
               </div>
             </div>
-            <div className="itemSize">
-              <span>Select A Size</span>
-              <div className="itemSizeSelect"></div>
+
+            <div className="itemSizeContainer">
+              <div>SELECT A SIZE</div>
+              <div className="itemSizeSelect">
+                  {item.size.map(s => (
+                    <button className="size" key={s}  onClick={()=>handleSizeClick(s)}>{s}</button>
+                  ))}
+              </div>
             </div>
-            <div className="addToWish"></div>
-            <button className="addToBag" onClick={()=>addToCart()}>Add To Bag</button>
+
+            <button className="addToWish">Add To Wishlist</button>
+
+            <button className="addToBag" onClick={()=>addToCart()}>Select Options</button>
+
             <div className="extraInfo"></div>
+
           </div>
+
 
         </div>
       </div>
-    //</ItemContext.Provider>
+    </ItemContext.Provider>
   )
 }
 
