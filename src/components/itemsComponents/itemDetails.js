@@ -48,6 +48,7 @@ const ItemDetails = (props) =>{
       size: selectedSize,
       quantity: 1
     })
+
     
     
     setQuantity(quantity + 1)
@@ -68,6 +69,7 @@ const ItemDetails = (props) =>{
     addToBagRef.current.style.color = 'white'
   }
   useEffect(()=>{
+    //onload
     window.scrollTo(0,0)
     localStorage.setItem('item', JSON.stringify(item))
     
@@ -75,20 +77,32 @@ const ItemDetails = (props) =>{
   }, [])
 
   useEffect(()=>{
-    console.log('select:',selectedItemDetails);
-    if(selectedItemDetails !== null && selectedItemDetails !== undefined){
-      cartAdded.items.forEach(it =>{
-        if(it.style == selectedItemDetails.style &&
-          it.size == selectedItemDetails.size &&
-          it.color == selectedItemDetails.color){
-            it.quantity++
-        } else {
-          
-        }
-      })
-      setCartAdded({items: [...cartAdded.items, selectedItemDetails]})
-    }
+    //cart adding logic
     
+    console.log('select:',selectedItemDetails);
+    if(selectedItemDetails){
+      console.log(cartAdded.items.length);
+      if(cartAdded.items.length < 1) {
+        setCartAdded({items: [...cartAdded.items, selectedItemDetails]})
+      } else {
+        cartAdded.items.forEach(it =>{
+          console.log(it);
+          if(it.style == selectedItemDetails.style &&
+            it.size == selectedItemDetails.size &&
+            it.color == selectedItemDetails.color){
+              console.log('hi');
+              it.quantity++
+          } 
+        })
+        if(!cartAdded.items.some(it =>
+          it.style == selectedItemDetails.style &&
+          it.size == selectedItemDetails.size &&
+          it.color == selectedItemDetails.color
+        )){
+          setCartAdded({items: [...cartAdded.items, selectedItemDetails]})
+        }
+      }
+    }
   },[selectedItemDetails])
 
   useEffect(()=>{

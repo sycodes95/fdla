@@ -24,7 +24,7 @@
 }
 .itemPicturesContainer{
   
-  display: flex;
+  display: grid;
   justify-content: center;
   
   grid-column: 1/2;
@@ -93,7 +93,7 @@
   column-gap: 10px;
   
   
-  top:60%;
+  top:70%;
   z-index: 2;
 
   
@@ -173,8 +173,8 @@
 }
 
 .addToBag{
-  opacity: 0.7;
-  background-color: rgb(225, 204, 174);
+  opacity: 0.5;
+  background-color: rgb(203, 183, 156);
   align-self: center;
   height:40px;
   width: 180px;
