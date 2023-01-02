@@ -150,7 +150,7 @@ const ItemDetails = (props) =>{
       if(parseInt(dot.id) !== currentIndex){
         dot.style.backgroundColor = 'white'
       } else if (parseInt(dot.id) === currentIndex){
-        dot.style.backgroundColor = 'rgb(221, 199, 169)'
+        dot.style.backgroundColor = 'rgb(254, 225, 157)'
       }
     })
   },[currentIndex])
@@ -260,20 +260,23 @@ const ItemDetails = (props) =>{
 
 
           <div className="itemPicturesContainer">
-            <div className="containerArrow">
-              <button className="leftArrow" ref={leftArrowRef} onClick={handleLeftArrow}>{'<'}</button>
-              <button className="rightArrow" ref={rightArrowRef} onClick={handleRightArrow}>{'>'}</button>
+            
+            <button className="leftArrow" ref={leftArrowRef} onClick={handleLeftArrow}>{'<'}</button>
+            <button className="rightArrow" ref={rightArrowRef} onClick={handleRightArrow}>{'>'}</button>
+
+
+            <div className="picDiv">
+              <div className="dotContainer">
+                {selectedImages.map((ig, i) =>(
+                  <button className="dot" key={i} id={i} ref={dotRef} onClick={handleDotClick}></button>
+                ))}
+              </div>
+              
+              <img className="itemPicture" ref={itemPictureRef} src={selectedImages[currentIndex]}
+              onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}/>
 
             </div>
             
-            <div className="dotContainer">
-              {selectedImages.map((ig, i) =>(
-                <button className="dot" key={i} id={i} ref={dotRef} onClick={handleDotClick}></button>
-              ))}
-            </div>
-            
-            <img className="itemPicture" ref={itemPictureRef} src={selectedImages[currentIndex]}
-            onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}/>
           </div>
 
 

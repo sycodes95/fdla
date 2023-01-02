@@ -19,7 +19,7 @@ import CartContext from "./components/cartContext";
 
 const App = () => {
   const [item, setItem] = useState([])
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(null)
   const [color, setColor] = useState([])
   const [cartAdded, setCartAdded] = useState({items:[]})
   

@@ -17,6 +17,7 @@ const Shop = (props) =>{
   //const { item, setItem } = useContext(ItemContext);
   const handleClick = (style) =>{
     setItem(style)
+    console.log(item);
   }
 
   const previewColorClick = (style, color) => {
