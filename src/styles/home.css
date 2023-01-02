@@ -1,15 +1,14 @@
 .homeContainer{
   height: 840px;
   
-
 }
 
 .homeVideo{
   height: 100%;
-  width: 100%;
+  
   object-fit: cover;
   
-  position:static;
+  
   
 
 }
@@ -21,7 +20,7 @@
   object-fit: cover;
   height: 100%;
   width: 100%;
-  position: static;
+  
   z-index: 0;
 }
 

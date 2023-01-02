@@ -4,15 +4,22 @@
   display: grid;
   justify-content: right;
   grid-template-columns: 40px 40px 20px 20px;
-  column-gap: 40px;
+  column-gap: 20px;
   align-items: center;
 
   font-size: 16px;
   font-weight: 300;
 
-  padding-right: 40px;
+  margin-right: 40px;
 }
 
+@media (max-width: 420px) {
+  .nav{
+    column-gap: 10px;
+    font-size: 14px;
+  }
+  
+}
 .link{
   color: black;
   text-decoration: none;

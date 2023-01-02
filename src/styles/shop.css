@@ -43,6 +43,13 @@
   }
 }
 
+@media (max-width: 420px) {
+  .shopItemsContainer{
+    grid-template-columns: 1fr;
+    
+  }
+}
+
 
 .shopItems{
   display: grid;
