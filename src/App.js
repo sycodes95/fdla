@@ -10,7 +10,7 @@ import Footer from "./components/footer";
 import styles from "./components/styles";
 import ItemDetails from "./components/itemsComponents/itemDetails";
 import { BrowserRouter, Routes, Switch, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles/app.css"
 import QuantityContext from "./components/context";
 import ItemContext from "./components/itemContext";
@@ -23,6 +23,31 @@ const App = () => {
   const [color, setColor] = useState([])
   const [cartAdded, setCartAdded] = useState({items:[]})
   
+  let lastScrollY = 0 
+  const handleScroll = () =>{
+    const header = document.querySelector('.header')
+    
+    if(header){
+      let currentScrollY = window.scrollY;
+      console.log(currentScrollY);
+      if (currentScrollY < lastScrollY) {
+        header.style.position = 'sticky'
+        header.style.top = '0%'
+        
+      }
+      lastScrollY = currentScrollY;
+
+    }
+
+  }
+
+  useEffect(()=>{
+    window.addEventListener('scroll', handleScroll);
+  },[])
+
+  
+
+  
   return (
     <BrowserRouter>
     <div className="main">
@@ -31,7 +56,7 @@ const App = () => {
           <ItemContext.Provider value={{item, setItem}}>
             <QuantityContext.Provider value={{quantity, setQuantity}}>
               <Header quantity={quantity} setQuantity={setQuantity}/>
-              <Menu/>
+              
 
                 <Routes>
                   <Route path="/" element={<Home/>}/>

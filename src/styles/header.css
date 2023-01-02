@@ -9,11 +9,16 @@
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 80px;
+  justify-content: center;
+  grid-template-rows: 80px 30px;
   column-gap: 40px;
-  height: 80px;
+  height: 110px;
   
-  
+  z-index: 5;
+
+  margin-bottom: 20px;
+  position: sticky;
+  transition: all 0.3s ease-in-out;
 }
 
 .logoContainer{

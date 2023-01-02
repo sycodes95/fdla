@@ -10,6 +10,27 @@ import ColorContext from "./colorContext";
 const Shop = (props) =>{
   const { item, setItem } = useContext(ItemContext);
   const { color, setColor } = useContext(ColorContext)
+  const header = document.querySelector('.header')
+  let lastScrollY = 0 
+
+  window.addEventListener('scroll', ()=>{
+    
+    let currentScrollY = window.scrollY;
+    console.log(currentScrollY);
+
+    if (currentScrollY < lastScrollY) {
+      header.style.transition = 'all 0.1s'
+      header.style.position = 'sticky'
+      header.style.top = '0%'
+      
+    } else {
+      
+      header.style.position = ''
+      header.style.top = ''
+    }
+    lastScrollY = currentScrollY;
+  })
+
 
   const checkBestSeller = (best) =>{
     if(best) return 'Best Seller';

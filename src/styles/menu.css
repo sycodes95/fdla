@@ -1,14 +1,19 @@
 .menuContainer{
+  background-color: white;
+  grid-column: 1/4;
+  grid-row: 2/3;
+
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: 1fr;
   justify-content: center;
   column-gap: 10px;
-  height: 60px;
+  height: 30px;
+  
   z-index: 1;
   text-align: center;
   
-  
+  padding-bottom: 10px;
 }
 
 .menuItems{

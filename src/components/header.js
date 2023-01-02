@@ -9,6 +9,7 @@ import QuantityContext from "./context";
 import ItemContext from "./itemContext";
 const Header = (props) =>{
   const {quantity, setQuantity} = props;
+  
   return(
     
     <QuantityContext.Provider value={{quantity, setQuantity}}>
@@ -22,6 +23,7 @@ const Header = (props) =>{
         </div>
         
         <Nav quantity={quantity} setQuantity={setQuantity}/>
+        <Menu/>
         
         
       </div>
