@@ -56,12 +56,15 @@ const ItemDetails = (props) =>{
     
     
     setQuantity(quantity + 1)
+    
+    /*
     styles.forEach(s => {
       if(s.name === item.name){
         s.cart = true;
         s.quantity++;
       }
     })
+    */
     
   }
 
@@ -78,24 +81,23 @@ const ItemDetails = (props) =>{
     localStorage.setItem('item', JSON.stringify(item))
     
     
-  }, [])
+  }, [color, item])
 
   useEffect(()=>{
     //cart adding logic
     
     console.log('select:',selectedItemDetails);
     if(selectedItemDetails){
-      console.log(cartAdded.items.length);
+      
       if(cartAdded.items.length < 1) {
         setCartAdded({items: [...cartAdded.items, selectedItemDetails]})
       } else {
         cartAdded.items.forEach(it =>{
-          console.log(it);
           if(it.style == selectedItemDetails.style &&
             it.size == selectedItemDetails.size &&
             it.color == selectedItemDetails.color){
-              console.log('hi');
               it.quantity++
+              setCartAdded({items: [...cartAdded.items]})
           } 
         })
         if(!cartAdded.items.some(it =>
@@ -104,6 +106,7 @@ const ItemDetails = (props) =>{
           it.color == selectedItemDetails.color
         )){
           setCartAdded({items: [...cartAdded.items, selectedItemDetails]})
+          
         }
       }
     }

@@ -13,11 +13,11 @@ const Nav = (props) => {
   const {quantity, setQuantity} = props;
   const {isOpen, setIsOpen} = useContext(OffcanvasContext)
   const [isCartEmpty, setIsCartEmpty] = useState('')
-  console.log(quantity);
+  
   const handleCartClick = () =>{
     setIsOpen(true)
     if(quantity < 1){
-      console.log('empty');
+      
       setIsCartEmpty('Cart is Empty!')
     } else {
       setIsCartEmpty('')
