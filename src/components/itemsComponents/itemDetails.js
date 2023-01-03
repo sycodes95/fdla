@@ -16,9 +16,13 @@ const ItemDetails = (props) =>{
   const { quantity, setQuantity } = useContext(QuantityContext);
   let { item, setItem } = useContext(ItemContext);
   let { cartAdded, setCartAdded} = useContext(CartContext)
-  
+  let { color, setColor} = useContext(ColorContext);
+  console.log(item);
   if(item.name == null || item.name == undefined) item = JSON.parse(localStorage.getItem("item"));
-  const { color, setColor} = useContext(ColorContext);
+  if(!color){
+    color = item.colorImg[0]
+  }
+  
   //---------------------------------------------------------------------------
   //---------------------------------------------------------------------------
   const addToBagRef = useRef(null)

@@ -1,8 +1,15 @@
 import fashionVid from "../vid/fashionvideo.mp4"
 import "../styles/home.css"
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 const Home = () =>{
-  
+  useEffect(()=>{
+    //onload
+    window.scrollTo(0,0)
+    
+    
+    
+  }, [])
   
   return(
     <div className="homeContainer">

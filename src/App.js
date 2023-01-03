@@ -16,13 +16,22 @@ import QuantityContext from "./components/context";
 import ItemContext from "./components/itemContext";
 import ColorContext from "./components/colorContext";
 import CartContext from "./components/cartContext";
+import OffcanvasContext from "./components/offcanvasContext";
 
 const App = () => {
   const [item, setItem] = useState([])
   const [quantity, setQuantity] = useState(null)
   const [color, setColor] = useState([])
   const [cartAdded, setCartAdded] = useState({items:[]})
-  
+  const [isOpen, setIsOpen] = useState(false)
+  useEffect(()=>{
+    //onload
+    window.scrollTo(0,0)
+    localStorage.setItem('item', JSON.stringify(item))
+    
+    
+  }, [])
+
   let lastScrollY = 0 
   const handleScroll = () =>{
     const header = document.querySelector('.header')
@@ -34,6 +43,9 @@ const App = () => {
         header.style.position = 'sticky'
         header.style.top = '0%'
         
+      } else {
+        header.style.position = 'relative'
+        header.style.top = '0%'
       }
       lastScrollY = currentScrollY;
 
@@ -43,6 +55,10 @@ const App = () => {
 
   useEffect(()=>{
     window.addEventListener('scroll', handleScroll);
+
+    return ()=>{
+      window.removeEventListener('scroll', handleScroll)
+    }
   },[])
 
   
@@ -51,30 +67,32 @@ const App = () => {
   return (
     <BrowserRouter>
     <div className="main">
-      <CartContext.Provider value={{cartAdded, setCartAdded}}>
-        <ColorContext.Provider value={{color, setColor}}>
-          <ItemContext.Provider value={{item, setItem}}>
-            <QuantityContext.Provider value={{quantity, setQuantity}}>
-              <Header quantity={quantity} setQuantity={setQuantity}/>
-              
+      <OffcanvasContext.Provider value={{isOpen, setIsOpen}}>
+        <CartContext.Provider value={{cartAdded, setCartAdded}}>
+          <ColorContext.Provider value={{color, setColor}}>
+            <ItemContext.Provider value={{item, setItem}}>
+              <QuantityContext.Provider value={{quantity, setQuantity}}>
+                <Header quantity={quantity} setQuantity={setQuantity}/>
+                
 
-                <Routes>
-                  <Route path="/" element={<Home/>}/>
-                  <Route path="/shop" element={<Shop/>}/>
-                  <Route path={item.path} element={<ItemDetails/>}/>
-                  <Route path="/cart" element={<Cart/>}/>
-                  {styles.map(s =>(
-                    <Route path={s.path} key={s.styleN} element={<ItemDetails/>}/>
-                  ))}
-                  
-                </Routes>
+                  <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/shop" element={<Shop/>}/>
+                    <Route path={item.path} element={<ItemDetails/>}/>
+                    <Route path="/cart" element={<Cart/>}/>
+                    {styles.map(s =>(
+                      <Route path={s.path} key={s.styleN} element={<ItemDetails/>}/>
+                    ))}
+                    
+                  </Routes>
 
-              <Footer/>
-            </QuantityContext.Provider>
+                <Footer/>
+              </QuantityContext.Provider>
 
-          </ItemContext.Provider>
-        </ColorContext.Provider>
-      </CartContext.Provider>
+            </ItemContext.Provider>
+          </ColorContext.Provider>
+        </CartContext.Provider>
+      </OffcanvasContext.Provider>
       
     </div>
     </BrowserRouter>

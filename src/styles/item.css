@@ -27,9 +27,7 @@
   .itemContainer{
     
     grid-template-columns: 1fr;
-    
   }
-
   
 }
 
@@ -43,27 +41,27 @@
   /* --------------- */
   
   height: 640px;
-  width: 400px;
+  width: 360px;
   
-  margin: 0 auto;
+  margin: 0;
   
   border-radius: 10px;
   font-size: 0;
 }
 
 .picDiv{
-  display: flex;
-  justify-content: center;
+  
+  
   overflow:hidden;
   
-  width: 400px;
+  width: 320px;
 }
 
 .itemPicture{
  
- 
+  align-self: center;
   height: 600px;
-  width: 400px;
+  width: 100%;
   z-index: 1;
   top: 0%;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -87,7 +85,7 @@
   position: relative;
   height: 40px;
   width: 20px;
-
+  font-size: 10px;
   border: none;
   background-color: rgb(254, 225, 157);
 
@@ -117,14 +115,17 @@
 
 
 .dotContainer{
-  position: absolute;
+  position: sticky;
   display: flex;
   justify-content: center;
+  align-self: center;
   column-gap: 10px;
   width: 50px;
   height: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   
-  top:100%;
+  top: 90%;
   z-index: 2;
 
   
@@ -158,9 +159,7 @@
   .itemInfo{
     width: 300px;
   }
-  .picDiv{
-    width: 300px;
-  }
+  
   .itemPicturesContainer{
     width: 300px;
   }
@@ -193,7 +192,7 @@
 }
 .itemSizeSelect{
   display: flex;
-  height: 24px;
+  height: 34px;
   justify-content: center;
   column-gap: 20px;
 }
@@ -213,6 +212,7 @@
 }
 
 .addToWish{
+  font-family:'Courier New', Courier, monospace;
   font-weight: 100;
   align-self: center;
   border: none;
@@ -224,6 +224,7 @@
 }
 
 .addToBag{
+  font-family:'Courier New', Courier, monospace;
   opacity: 0.5;
   background-color: rgb(203, 183, 156);
   align-self: center;
@@ -251,10 +252,14 @@
   flex-direction: row;
   column-gap: 4px;
   justify-content: center;
+  
 }
 .colorChoice{
+
+  display: flex;
+  align-items: center;
   user-select: none;
-  margin-right: 4px;
+  
   height:20px;
   width: 20px;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
@@ -265,8 +270,11 @@
   
 }
 .colorChoiceContainer{
-  height: 20px;
-  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  width: 24px;
 }
 .colorChoice:hover{
   cursor: pointer;

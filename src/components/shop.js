@@ -1,7 +1,7 @@
 import Cart from "./cart";
 import styles from "./styles";
 import "../styles/shop.css"
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ItemContext from "./itemContext";
 import ColorContext from "./colorContext";
@@ -10,26 +10,13 @@ import ColorContext from "./colorContext";
 const Shop = (props) =>{
   const { item, setItem } = useContext(ItemContext);
   const { color, setColor } = useContext(ColorContext)
-  const header = document.querySelector('.header')
-  let lastScrollY = 0 
-
-  window.addEventListener('scroll', ()=>{
+  useEffect(()=>{
+    //onload
+    window.scrollTo(0,0)
     
-    let currentScrollY = window.scrollY;
-    console.log(currentScrollY);
-
-    if (currentScrollY < lastScrollY) {
-      header.style.transition = 'all 0.1s'
-      header.style.position = 'sticky'
-      header.style.top = '0%'
-      
-    } else {
-      
-      header.style.position = ''
-      header.style.top = ''
-    }
-    lastScrollY = currentScrollY;
-  })
+    
+    
+  }, [])
 
 
   const checkBestSeller = (best) =>{
@@ -37,11 +24,22 @@ const Shop = (props) =>{
   }
   //const { item, setItem } = useContext(ItemContext);
   const handleClick = (style) =>{
+    let existing = []
+    style.colorImg.forEach(c =>{
+      if(color.colorPre === c.colorPre){
+        existing.push(c)
+      }
+    })
+    if(existing.length < 1) {
+      setColor(null)
+    }
+    console.log(existing);
     setItem(style)
-    console.log(item);
+    
   }
 
   const previewColorClick = (style, color) => {
+    
     setColor(color)
     const img = document.getElementById(`${style.styleN}`)
     img.src = color.images[0]
