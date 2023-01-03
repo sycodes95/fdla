@@ -14,8 +14,6 @@ const Shop = (props) =>{
     //onload
     window.scrollTo(0,0)
     
-    
-    
   }, [])
 
 

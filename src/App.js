@@ -1,4 +1,4 @@
-
+import "bootstrap/dist/css/bootstrap.css"
 import React from "react";
 import Header from "./components/header"
 import Nav from "./components/nav"
@@ -24,13 +24,7 @@ const App = () => {
   const [color, setColor] = useState([])
   const [cartAdded, setCartAdded] = useState({items:[]})
   const [isOpen, setIsOpen] = useState(false)
-  useEffect(()=>{
-    //onload
-    window.scrollTo(0,0)
-    localStorage.setItem('item', JSON.stringify(item))
-    
-    
-  }, [])
+  
 
   let lastScrollY = 0 
   const handleScroll = () =>{

@@ -8,7 +8,9 @@ import CartContext from "./cartContext";
 import ItemContext from "./itemContext";
 import { Link } from "react-router-dom";
 import {Offcanvas} from "react-bootstrap"
-import 'bootstrap/dist/css/bootstrap.css'
+
+import { useRef } from "react";
+
 import OffcanvasContext from "./offcanvasContext";
 
 const Cart = (props) =>{
@@ -16,59 +18,68 @@ const Cart = (props) =>{
   let { cartAdded, setCartAdded} = useContext(CartContext)
   let { item, setItem} = useContext(ItemContext)
   const {isOpen, setIsOpen} = useContext(OffcanvasContext)
-  console.log(isOpen);
+  const [isEmpty, setIsEmpty] = useState(false)
+  const cartEmptyRef = useRef(null)
+  
+  console.log(props);
 
   if(cartAdded.items.length < 1){
     cartAdded = JSON.parse(localStorage.getItem("cartAdded"));
   } 
 
   if(!quantity){
-    console.log('quantity storage');
+    
     quantity = JSON.parse(localStorage.getItem("quantity"))
+    
+  }
+
+  const cartEmpty = () =>{
+    
+  }
+
+  const testDiv = () =>{
+    
   }
 
   
   const onHideHandler = () =>{
     setIsOpen(false)
   }
-  useEffect(()=>{
-    /*
-    setTimeout(()=>{
-      const handleClick = (event) =>{
-        if(!event.target.closest('.cartContainer')){
-          setIsOpen(false)
-        }
-      }
-  
-      document.addEventListener('click', handleClick)
-  
-      return ()=>{
-        document.removeEventListener('click', handleClick)
-      }
-  
-    }, 1000)
-    */
-  })
  
   useEffect(()=>{
+    console.log(quantity);
+    console.log(quantity);
+    console.log(cartAdded);
+    console.log(cartEmptyRef.current)
+    
+    
+  },[])
+  useEffect(()=>{
+    
     //keep cartAdded in sync with local storage
     localStorage.setItem('cartAdded', JSON.stringify(cartAdded))
     const cartItem = document.querySelectorAll('.cartItem')
     cartItem.forEach(i =>{
       i.style.opacity = '1'
     })
+   
   }, [cartAdded])
 
   useEffect(()=>{
     //keep quantity in sync with local storage
     setQuantity(quantity)
     localStorage.setItem('quantity', JSON.stringify(quantity))
+    if(quantity < 1) props.setIsCartEmpty('Cart is Empty!')
+    
+    
   },[quantity])
 
   const removeHandler = (it) =>{
+    
 
     const element = document.getElementById(`${it.style} ${it.color} ${it.size}`)
     element.style.opacity = 0;
+    
     setTimeout(()=>{
       setQuantity(quantity - it.quantity)
       it.quantity = 0
@@ -78,6 +89,7 @@ const Cart = (props) =>{
       if(newItems.length < 1) {
         localStorage.removeItem('cartAdded')
         localStorage.removeItem('quantity')
+        
       } 
 
     }, 700)
@@ -92,7 +104,6 @@ const Cart = (props) =>{
       }
     })
   }
-  console.log(cartAdded);
   return(
     <Offcanvas show={isOpen}  onHide={onHideHandler} placement="end">
       <Offcanvas.Header closeButton>
@@ -101,10 +112,10 @@ const Cart = (props) =>{
       
         <div className="cartContainer">
           <div className="cartShippingDetails">
-
           </div>
+          
           <div className="cartItemContainer">
-            {cartAdded ? cartAdded.items.map(it => 
+            {cartAdded ?  cartAdded.items.map(it => 
               <div className="cartItem" id={`${it.style} ${it.color} ${it.size}`} key={it.styleN}>
                 <div className="cartPicAndQuantity">
                   <div className="cartItemQuantity">{it.quantity}</div>
@@ -123,14 +134,12 @@ const Cart = (props) =>{
                 
                 <div className="cartItemPrice">$ {it.quantity * it.price}</div>
               </div>
-              
             )
-            : <div className="cartEmpty">Cart is empty!</div>}
-
+            : cartEmpty}
           </div>
+          <div className="cartEmpty" ref={cartEmptyRef}>{props.empty}</div>
 
-          <div className="subTotal"></div>
-
+          <button className="checkout">Check Out</button>
         </div>
       
     </Offcanvas>

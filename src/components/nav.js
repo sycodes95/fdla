@@ -12,9 +12,22 @@ import Cart from "./cart";
 const Nav = (props) => {
   const {quantity, setQuantity} = props;
   const {isOpen, setIsOpen} = useContext(OffcanvasContext)
+  const [isCartEmpty, setIsCartEmpty] = useState('')
+  console.log(quantity);
   const handleCartClick = () =>{
-   setIsOpen(true)
+    setIsOpen(true)
+    if(quantity < 1){
+      console.log('empty');
+      setIsCartEmpty('Cart is Empty!')
+    } else {
+      setIsCartEmpty('')
+    }
+   
   }
+
+  useEffect(()=>{
+    
+  },[quantity])
   return(
     <OffcanvasContext.Provider value={{isOpen, setIsOpen}}>
       <QuantityContext.Provider value={{quantity, setQuantity}}>
@@ -36,7 +49,7 @@ const Nav = (props) => {
             <span className="quantity">{quantity}</span>
           </div>
           
-          <Cart/>
+          <Cart empty={isCartEmpty} setIsCartEmpty={setIsCartEmpty}/>
           
           
         </nav>
