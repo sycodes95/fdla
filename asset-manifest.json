@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/shopping-cart/static/css/main.fa08c26a.css",
+    "main.js": "/shopping-cart/static/js/main.e68faf69.js",
+    "static/js/787.d6fe38e8.chunk.js": "/shopping-cart/static/js/787.d6fe38e8.chunk.js",
+    "static/media/fashionvideo.mp4": "/shopping-cart/static/media/fashionvideo.9fc956ec5f0c38199905.mp4",
+    "static/media/beigeflowers.jpg": "/shopping-cart/static/media/beigeflowers.bbeda146d6fb0d6e948e.jpg",
+    "static/media/green.jpeg": "/shopping-cart/static/media/green.895a8458346a0aa97a2c.jpeg",
+    "static/media/plaid_fleece_green_1.jpg": "/shopping-cart/static/media/plaid_fleece_green_1.faf0ea17e6dd823d7c64.jpg",
+    "static/media/plaid_fleece_green_0.jpg": "/shopping-cart/static/media/plaid_fleece_green_0.3d8f63879a80e66a89cd.jpg",
+    "static/media/plaid_fleece_rust_0.jpg": "/shopping-cart/static/media/plaid_fleece_rust_0.1eecc55f30b192003b6e.jpg",
+    "static/media/leopard_accent_hoodie_grey_0.jpg": "/shopping-cart/static/media/leopard_accent_hoodie_grey_0.fca57f7ece2f1eb13109.jpg",
+    "static/media/corduroy_black_1.jpg": "/shopping-cart/static/media/corduroy_black_1.5c7815c8d644537b7b0d.jpg",
+    "static/media/corduroy_camel_0.jpg": "/shopping-cart/static/media/corduroy_camel_0.3530e3339f4c7edf8bf8.jpg",
+    "static/media/corduroy_camel_2.jpg": "/shopping-cart/static/media/corduroy_camel_2.60d427e4e41db39df013.jpg",
+    "static/media/corduroy_camel_1.jpg": "/shopping-cart/static/media/corduroy_camel_1.c816a5db2c5516b53a43.jpg",
+    "static/media/corduroy_black_0.jpg": "/shopping-cart/static/media/corduroy_black_0.3444e7b3df71c91023e0.jpg",
+    "static/media/leopard_accent_hoodie_charcoal_0.jpg": "/shopping-cart/static/media/leopard_accent_hoodie_charcoal_0.1dd23d117a0b0b5baf24.jpg",
+    "static/media/plaid_fleece_rust_1.jpg": "/shopping-cart/static/media/plaid_fleece_rust_1.3d402cb6777190f0afb4.jpg",
+    "static/media/grey.jpg": "/shopping-cart/static/media/grey.c762d76cd0167d088983.jpg",
+    "static/media/PathwayGothicOne-Regular.ttf": "/shopping-cart/static/media/PathwayGothicOne-Regular.b158834481c2d77464d0.ttf",
+    "index.html": "/shopping-cart/index.html",
+    "static/media/cart.svg": "/shopping-cart/static/media/cart.4a2e48ad63347fa4bb421d8caf8b9b6c.svg",
+    "static/media/heart.svg": "/shopping-cart/static/media/heart.53cced070bcf9c93db36811ab005fceb.svg",
+    "main.fa08c26a.css.map": "/shopping-cart/static/css/main.fa08c26a.css.map",
+    "main.e68faf69.js.map": "/shopping-cart/static/js/main.e68faf69.js.map",
+    "787.d6fe38e8.chunk.js.map": "/shopping-cart/static/js/787.d6fe38e8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa08c26a.css",
+    "static/js/main.e68faf69.js"
+  ]
+}
