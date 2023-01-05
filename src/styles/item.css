@@ -35,13 +35,14 @@
 .itemPicturesContainer{
   
   display: grid;
+  
   justify-content: center;
   grid-template-columns: 20px 1fr 20px;
   grid-template-rows: 1fr;
   /* --------------- */
   
   height: 640px;
-  width: 360px;
+  width: 100%;
   
   margin: 0;
   
@@ -54,11 +55,11 @@
   
   overflow:hidden;
   
-  width: 320px;
+  width: 400px;
 }
 
 .itemPicture{
- 
+  
   align-self: center;
   height: 600px;
   width: 100%;
@@ -166,6 +167,10 @@
 
   .itemPicture{
     width: 280px;
+  }
+
+  .picDiv{
+    width: 320px;
   }
 
 }
