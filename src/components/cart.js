@@ -123,7 +123,10 @@ const Cart = (props) =>{
       if(s.path === it.path){
         setItem(s)
         setColor(s.colorImg[0])
-        window.location.href = s.path;
+        
+        window.location.href = `#${s.path}`;
+        window.location.reload();
+        
         onHideHandler()
       }
     })

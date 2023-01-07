@@ -2,6 +2,10 @@ import fashionVid from "../vid/fashionvideo.mp4"
 import "../styles/home.css"
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+
+import rusModel from "../homeImg/rus-beige.jpeg"
+import rusModel2 from "../homeImg/rus-beige2.jpeg"
+
 const Home = () =>{
   useEffect(()=>{
     //onload
@@ -26,6 +30,32 @@ const Home = () =>{
         </Link>
         
       </button>
+      <div className="homeFirstTextBox">
+        <div>
+          
+          <span style={{color: 'black'}}><em>" Really cringe and pretentious </em></span>
+          <span><em>inspirational quotes go here "</em></span>
+          
+        </div>
+      </div>
+      <div className="firstHomeImgCon">
+        <div className="homePicCon">
+          <div className="homePic one">
+            <Link className="homePicLink one" to="/shop">
+              <img src={rusModel} alt=""/>
+            </Link>
+          </div>
+          <div className="homePic two">
+            <Link className="homePicLink two" to="/shop">
+              <img src={rusModel2} alt=""/>
+            </Link>
+          </div>
+          
+          
+
+        </div>
+        
+      </div>
      
       
     </div>
