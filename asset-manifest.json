@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/home/static/css/main.f0680ea3.css",
-    "main.js": "/home/static/js/main.06e93c26.js",
-    "static/js/787.d6fe38e8.chunk.js": "/home/static/js/787.d6fe38e8.chunk.js",
+    "main.js": "/home/static/js/main.40aa1e9f.js",
+    "static/js/787.91815628.chunk.js": "/home/static/js/787.91815628.chunk.js",
     "static/media/rus-beige.jpeg": "/home/static/media/rus-beige.a7ef17c7593568b3c51f.jpeg",
     "static/media/rus-beige2.jpeg": "/home/static/media/rus-beige2.10716b911e91497ef643.jpeg",
     "static/media/fashionvideo.mp4": "/home/static/media/fashionvideo.9fc956ec5f0c38199905.mp4",
@@ -25,11 +25,11 @@
     "static/media/cart.svg": "/home/static/media/cart.4a2e48ad63347fa4bb421d8caf8b9b6c.svg",
     "static/media/heart.svg": "/home/static/media/heart.53cced070bcf9c93db36811ab005fceb.svg",
     "main.f0680ea3.css.map": "/home/static/css/main.f0680ea3.css.map",
-    "main.06e93c26.js.map": "/home/static/js/main.06e93c26.js.map",
-    "787.d6fe38e8.chunk.js.map": "/home/static/js/787.d6fe38e8.chunk.js.map"
+    "main.40aa1e9f.js.map": "/home/static/js/main.40aa1e9f.js.map",
+    "787.91815628.chunk.js.map": "/home/static/js/787.91815628.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f0680ea3.css",
-    "static/js/main.06e93c26.js"
+    "static/js/main.40aa1e9f.js"
   ]
 }
