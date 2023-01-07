@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.fa08c26a.css",
-    "main.js": "/shopping-cart/static/js/main.0df667a0.js",
+    "main.css": "/shopping-cart/static/css/main.f930bb7e.css",
+    "main.js": "/shopping-cart/static/js/main.654de654.js",
     "static/js/787.d6fe38e8.chunk.js": "/shopping-cart/static/js/787.d6fe38e8.chunk.js",
+    "static/media/rus-beige.jpeg": "/shopping-cart/static/media/rus-beige.a7ef17c7593568b3c51f.jpeg",
+    "static/media/rus-beige2.jpeg": "/shopping-cart/static/media/rus-beige2.10716b911e91497ef643.jpeg",
     "static/media/fashionvideo.mp4": "/shopping-cart/static/media/fashionvideo.9fc956ec5f0c38199905.mp4",
     "static/media/beigeflowers.jpg": "/shopping-cart/static/media/beigeflowers.bbeda146d6fb0d6e948e.jpg",
     "static/media/green.jpeg": "/shopping-cart/static/media/green.895a8458346a0aa97a2c.jpeg",
@@ -22,12 +24,12 @@
     "index.html": "/shopping-cart/index.html",
     "static/media/cart.svg": "/shopping-cart/static/media/cart.4a2e48ad63347fa4bb421d8caf8b9b6c.svg",
     "static/media/heart.svg": "/shopping-cart/static/media/heart.53cced070bcf9c93db36811ab005fceb.svg",
-    "main.fa08c26a.css.map": "/shopping-cart/static/css/main.fa08c26a.css.map",
-    "main.0df667a0.js.map": "/shopping-cart/static/js/main.0df667a0.js.map",
+    "main.f930bb7e.css.map": "/shopping-cart/static/css/main.f930bb7e.css.map",
+    "main.654de654.js.map": "/shopping-cart/static/js/main.654de654.js.map",
     "787.d6fe38e8.chunk.js.map": "/shopping-cart/static/js/787.d6fe38e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa08c26a.css",
-    "static/js/main.0df667a0.js"
+    "static/css/main.f930bb7e.css",
+    "static/js/main.654de654.js"
   ]
 }
