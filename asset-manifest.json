@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/fdla/static/css/main.ff8092b3.css",
-    "main.js": "/fdla/static/js/main.6b7f230d.js",
+    "main.css": "/fdla/static/css/main.56f99aae.css",
+    "main.js": "/fdla/static/js/main.6145ce6a.js",
     "static/js/787.91815628.chunk.js": "/fdla/static/js/787.91815628.chunk.js",
     "static/media/rus-beige.jpeg": "/fdla/static/media/rus-beige.a7ef17c7593568b3c51f.jpeg",
     "static/media/rus-beige2.jpeg": "/fdla/static/media/rus-beige2.10716b911e91497ef643.jpeg",
@@ -24,12 +24,12 @@
     "index.html": "/fdla/index.html",
     "static/media/cart.svg": "/fdla/static/media/cart.4a2e48ad63347fa4bb421d8caf8b9b6c.svg",
     "static/media/heart.svg": "/fdla/static/media/heart.53cced070bcf9c93db36811ab005fceb.svg",
-    "main.ff8092b3.css.map": "/fdla/static/css/main.ff8092b3.css.map",
-    "main.6b7f230d.js.map": "/fdla/static/js/main.6b7f230d.js.map",
+    "main.56f99aae.css.map": "/fdla/static/css/main.56f99aae.css.map",
+    "main.6145ce6a.js.map": "/fdla/static/js/main.6145ce6a.js.map",
     "787.91815628.chunk.js.map": "/fdla/static/js/787.91815628.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff8092b3.css",
-    "static/js/main.6b7f230d.js"
+    "static/css/main.56f99aae.css",
+    "static/js/main.6145ce6a.js"
   ]
 }
