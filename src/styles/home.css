@@ -6,6 +6,7 @@
 .homeVideo{
   height: 100vh;
   object-fit: cover;
+  
 }
 
 
@@ -14,7 +15,7 @@
   object-fit: cover;
   height: 100vh;
   width: 100%;
-  
+  border-radius: 10px;
   z-index: 0;
 }
 
@@ -113,25 +114,17 @@
 
 
 .firstHomeImgCon{
-  
- 
-  border-left:  solid 2px rgb(0, 0, 0);
-  border-right: solid 2px rgb(203, 183, 156);
+  margin-top: 60px;
   border-radius: 20px;
-  margin: 20px;
-
-  height: 900px;
+  
 }
 .homePicCon{
-  padding: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  
   justify-content: center;
   height: 100%;
-  
-  
+  column-gap: 2px;
   
 }
 
@@ -142,32 +135,39 @@
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
+  object-fit: cover;
+}
+
+.homePicLink{
+  
+  
+  
 }
 .homePicLink > img{
   position: relative;
-  
   grid-row: 1/2;
-  height: 1400px;
   
   object-fit: cover;
-
-  
+  max-width: 100%;
+  width: 100%;
+  min-height: 696px;
 }
 
 .homePicLink.one > img{
-  bottom: 50%;
+  
+  
   filter:  sepia(61.8%);
 
 }
 
 .homePicLink.two > img{
-  bottom: 44%;
+  
   filter:  grayscale(76.2%);
 
 }
 
 .homePic.one{
-  border-right: dotted 2px white;
+  
 }
 
 .homePic.two{

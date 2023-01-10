@@ -30,14 +30,7 @@ const Home = () =>{
         </Link>
         
       </button>
-      <div className="homeFirstTextBox">
-        <div>
-          
-          <span style={{color: 'black'}}><em>" Really cringe and pretentious </em></span>
-          <span><em>inspirational quotes go here "</em></span>
-          
-        </div>
-      </div>
+      
       <div className="firstHomeImgCon">
         <div className="homePicCon">
           <div className="homePic one">
